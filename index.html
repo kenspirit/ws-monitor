@@ -1,0 +1,48 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+<style>
+.status-Failed {
+  color: red;
+}
+.containsFailed-true h4 a {
+  color: red;
+}
+.colHeader {
+  font-weight: bold;
+  border-bottom: 1px solid #666666;
+}
+
+.colContent {
+  border-bottom: 1px solid #666666;
+}
+</style>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/angular.js"></script>
+<script src="/js/angular-sanitize.js"></script>
+<script src="/js/ui-bootstrap-tpls-0.10.0.js"></script>
+<script src="/js/monitor.js"></script>
+</head>
+<body ng-app="Monitor" ng-controller="MonitorCtrl">
+<form class="form-horizontal">
+<accordion close-others="false">
+  <accordion-group heading="{{group}}" ng-repeat="(group, webServices) in groups" is-open="false" class="containsFailed-{{groups[group].containsFailed}}">
+    <div class="row colHeader">
+      <div class="col-md-2">Name</div>
+      <div class="col-md-1">Status</div>
+      <div class="col-md-2">Last Up On</div>
+      <div class="col-md-2">Last Checked On</div>
+      <div class="col-md-5">Remark</div>
+    </div>
+    <div ng-repeat="(name, ws) in webServices.ws" class="row colContent">
+      <div class="col-md-2"><a ng-href="{{ws.url}}">{{ws.name}}</a></div>
+      <div class="col-md-1"><label class="status-{{ws.status}}">{{ws.status}}</label></div>
+      <div class="col-md-2">{{ws.lastUpTime}}</div>
+      <div class="col-md-2">{{ws.lastCheckingTime}}</div>
+      <div class="col-md-5">{{ws.remark}}</div>
+    </div>
+  </accordion-group>
+</accordion>
+</form>
+</body>
+</html>

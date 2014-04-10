@@ -1,0 +1,35 @@
+{
+  "name": "ws-monitor",
+  "version": "0.0.1",
+  "description": "Web Service Monitor",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "keywords": [
+    "WS",
+    "Monitor",
+    "Web Service",
+    "REST",
+    "SOAP"
+  ],
+  "author": "Ken Chen",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^3.5.1",
+    "moment": "^2.5.1",
+    "restler": "^3.2.0",
+    "soap": "^0.4.2",
+    "socket.io": "^0.9.16",
+    "underscore": "^1.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kenspirit/ws-monitor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kenspirit/ws-monitor/issues"
+  },
+  "homepage": "https://github.com/kenspirit/ws-monitor",
+  "readmeFilename": "readme.md"
+}
